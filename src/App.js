@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Select from "react-select";
 
-function App() {
+const options = [
+  { label: "Option 1", value: 1 },
+  { label: "Option 2", value: 2 },
+  { label: "Option 3", value: 3 },
+  { label: "Option 4", value: 4 },
+  { label: "Option 5", value: 5 },
+];
+
+export default function App() {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+      <Select
+        options={options} 
+        isMulti
+        value={selectedOptions}
+        onChange={setSelectedOptions}
+      />
+    </div>
+  );
 }
-
-export default App;
